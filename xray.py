@@ -41,6 +41,12 @@ class XRayConfig(dict):
             if api_tag and rule.get('outboundTag') == api_tag:
                 self['routing']['rules'].remove(rule)
 
+        self["log"] = {
+            "access": "./access.log",
+            "dnsLog": False,
+            "error": "./error.log",
+            "loglevel": "warning",
+        }
         self["api"] = {
             "services": [
                 "HandlerService",
